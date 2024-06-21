@@ -1,5 +1,5 @@
-# Created by https://www.toptal.com/developers/gitignore/api/swift,objective-c,swiftpackagemanager,macos,xcode
-# Edit at https://www.toptal.com/developers/gitignore?templates=swift,objective-c,swiftpackagemanager,macos,xcode
+# Created by https://www.toptal.com/developers/gitignore/api/swift,objective-c,macos
+# Edit at https://www.toptal.com/developers/gitignore?templates=swift,objective-c,macos
 
 ### macOS ###
 # General
@@ -154,23 +154,4 @@ Dependencies/
 # https://github.com/johnno1962/injectionforxcode
 
 
-### SwiftPackageManager ###
-Packages
-xcuserdata
-*.xcodeproj
-
-
-### Xcode ###
-
-## Xcode 8 and earlier
-
-### Xcode Patch ###
-*.xcodeproj/*
-!*.xcodeproj/project.pbxproj
-!*.xcodeproj/xcshareddata/
-!*.xcodeproj/project.xcworkspace/
-!*.xcworkspace/contents.xcworkspacedata
-/*.gcno
-**/xcshareddata/WorkspaceSettings.xcsettings
-
-# End of https://www.toptal.com/developers/gitignore/api/swift,objective-c,swiftpackagemanager,macos,xcode
+# End of https://www.toptal.com/developers/gitignore/api/swift,objective-c,macos
