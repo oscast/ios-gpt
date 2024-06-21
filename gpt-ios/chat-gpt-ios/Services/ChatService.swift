@@ -19,6 +19,8 @@ class ChatService: ChatStreamer {
     var userInput: String = ""
     var isLoading: Bool = false
     
+    private let gptMode: String = "gpt-4o"
+    
     private let apiService: APIService
     
     init(apiService: APIService = APIService(urlSession: .shared)) {
@@ -33,11 +35,14 @@ class ChatService: ChatStreamer {
         
         do {
             let messages = [Message(role: .user, content: userInput)]
-            let openAIRequest = OpenAIRequest(model: "gpt-4o", messages: messages)
+            let openAIRequest = OpenAIRequest(model: gptMode, messages: messages)
             let request = try ChatRequest.makeRequest(openAIRequest: openAIRequest)
             
-            let response: String = try await apiService.request(urlRequest: request)
-            let botMessage = Message(role: .assistant, content: response)
+            let openAIResponse: OpenAIResponse = try await apiService.request(urlRequest: request)
+            
+            guard let message = openAIResponse.choices.first?.message.content else { throw NetworkError.invalidResponse }
+            
+            let botMessage = Message(role: .assistant, content: message)
             chatMessages.append(botMessage)
             userInput = ""
         } catch {
@@ -49,5 +54,3 @@ class ChatService: ChatStreamer {
         }
     }
 }
-
-
