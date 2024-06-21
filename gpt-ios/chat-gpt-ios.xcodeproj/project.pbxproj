@@ -10,6 +10,7 @@
 		9A22A47B2C25E9B10094511D /* ChatRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A22A47A2C25E9B10094511D /* ChatRequest.swift */; };
 		9A22A47D2C25E9EE0094511D /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A22A47C2C25E9EE0094511D /* Message.swift */; };
 		9A22A47F2C25EA1D0094511D /* OpenAIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A22A47E2C25EA1D0094511D /* OpenAIRequest.swift */; };
+		9A22A4842C260C7D0094511D /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A22A4832C260C7D0094511D /* APIService.swift */; };
 		9A58CC2F2C20CAB600789FF4 /* chat_gpt_iosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A58CC2E2C20CAB600789FF4 /* chat_gpt_iosApp.swift */; };
 		9A58CC312C20CAB600789FF4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A58CC302C20CAB600789FF4 /* ContentView.swift */; };
 		9A58CC332C20CAB700789FF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A58CC322C20CAB700789FF4 /* Assets.xcassets */; };
@@ -22,6 +23,7 @@
 		9A22A47A2C25E9B10094511D /* ChatRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRequest.swift; sourceTree = "<group>"; };
 		9A22A47C2C25E9EE0094511D /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		9A22A47E2C25EA1D0094511D /* OpenAIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIRequest.swift; sourceTree = "<group>"; };
+		9A22A4832C260C7D0094511D /* APIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		9A58CC2B2C20CAB600789FF4 /* chat-gpt-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "chat-gpt-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A58CC2E2C20CAB600789FF4 /* chat_gpt_iosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chat_gpt_iosApp.swift; sourceTree = "<group>"; };
 		9A58CC302C20CAB600789FF4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 		9A58CC3C2C20CB2300789FF4 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				9A22A4832C260C7D0094511D /* APIService.swift */,
 				9A58CC3D2C20CB8F00789FF4 /* ChatService.swift */,
 			);
 			path = Services;
@@ -190,6 +193,7 @@
 				9A22A47D2C25E9EE0094511D /* Message.swift in Sources */,
 				9A58CC2F2C20CAB600789FF4 /* chat_gpt_iosApp.swift in Sources */,
 				9A22A47F2C25EA1D0094511D /* OpenAIRequest.swift in Sources */,
+				9A22A4842C260C7D0094511D /* APIService.swift in Sources */,
 				9A58CC3E2C20CB8F00789FF4 /* ChatService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
