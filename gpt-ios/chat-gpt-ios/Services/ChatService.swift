@@ -8,49 +8,40 @@
 import Foundation
 import SwiftUI
 
-protocol ChatStreamer {
-    func sendMessage() async
+protocol ChatServiceType {
+    var networkService: RequesterType { get }
+    func sendMessage(_ message: Message, includeSystemRole: Bool, stream: Bool) async throws -> OpenAIResponse
 }
 
-@Observable
-class ChatService: ChatStreamer {
+struct ChatService: ChatServiceType {
+    let networkService: RequesterType
     
-    var chatMessages: [Message] = []
-    var userInput: String = ""
-    var isLoading: Bool = false
+    static var systemMessage = Message(role: .system, content: "You are useful assitant expert on everything")
     
-    private let gptMode: String = "gpt-4o"
-    
-    private let apiService: APIService
-    
-    init(apiService: APIService = APIService(urlSession: .shared)) {
-        self.apiService = apiService
+    init(networkService: RequesterType = NetworkService()) {
+        self.networkService = networkService
     }
     
-    func sendMessage() async {
-        guard !userInput.isEmpty else { return }
+    func sendMessage(_ message: Message, includeSystemRole: Bool = true, stream: Bool = false) async throws -> OpenAIResponse {
+        var messages: [Message] = []
         
-        let userMessage = Message(role: .user, content: userInput)
-        chatMessages.append(userMessage)
+        messages.append(Message(role: .user, content: message.content))
         
-        do {
-            let messages = [Message(role: .user, content: userInput)]
-            let openAIRequest = OpenAIRequest(model: gptMode, messages: messages)
-            let request = try ChatRequest.makeRequest(openAIRequest: openAIRequest)
-            
-            let openAIResponse: OpenAIResponse = try await apiService.request(urlRequest: request)
-            
-            guard let message = openAIResponse.choices.first?.message.content else { throw NetworkError.invalidResponse }
-            
-            let botMessage = Message(role: .assistant, content: message)
-            chatMessages.append(botMessage)
-            userInput = ""
-        } catch {
-            if let networkError = error as? NetworkError {
-                chatMessages.append(Message.ErrorMessage(error: networkError))
-            } else {
-                chatMessages.append(Message.ErrorMessage(error:  NetworkError.other("unkown error")))
-            }
+        var messagesToSend: [Message] = []
+        
+        if includeSystemRole {
+            messages.append(ChatService.systemMessage)
+            messagesToSend = messages.filter { $0.role != .system } + [ChatService.systemMessage]
+        } else {
+            messagesToSend = messages
         }
+        
+        let request = OpenAIRequest(
+            model: "gpt-3.5-turbo",
+            messages: messagesToSend
+        )
+        
+        let endpoint = try OpenAIEndpoint(request: request)
+        return try await networkService.request(endpoint: endpoint, responseModel: OpenAIResponse.self)
     }
 }
