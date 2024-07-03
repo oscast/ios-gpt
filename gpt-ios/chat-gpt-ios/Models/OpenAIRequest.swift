@@ -16,7 +16,7 @@ enum UserRole: String, Codable {
 struct Message: Codable, Equatable, Hashable {
     let id = UUID()
     let role: UserRole
-    let content: String
+    var content: String
     
     static func == (lhs: Message, rhs: Message) -> Bool {
         return lhs.role == rhs.role && lhs.content == rhs.content
@@ -79,30 +79,6 @@ struct OpenAIRequest: Codable {
         self.stop = stop
     }
 }
-
-struct OpenAIResponse: Codable {
-    let id: String
-    let object: String
-    let created: Int
-    let model: String
-    let choices: [Choice]
-    let usage: Usage?
-}
-
-struct Choice: Codable {
-    let index: Int
-    let message: Message
-    let logprobs: String?
-    let finish_reason: String?
-}
-
-struct Usage: Codable {
-    let prompt_tokens: Int
-    let completion_tokens: Int
-    let total_tokens: Int
-}
-
-
 
 struct OpenAIEndpoint: Endpoint {
     var baseURL: URL { APIConfiguration.serviceURL }

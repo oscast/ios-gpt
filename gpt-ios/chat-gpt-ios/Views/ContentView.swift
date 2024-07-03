@@ -13,6 +13,17 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack {
+                
+                Toggle(isOn: $viewModel.shouldStream, label: {
+                    HStack {
+                        Spacer()
+                        Text("Stream")
+                    }
+                })
+                .padding(.horizontal)
+                
+                Divider()
+                
                 ScrollViewReader { scrollViewProxy in
                     ScrollView {
                         ChatMessagesView(viewModel: viewModel)

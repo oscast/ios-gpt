@@ -37,7 +37,7 @@ struct ChatButton: View {
     func sendMessage() {
         Task {
             viewModel.isLoading = true
-            await viewModel.sendMessage()
+            await viewModel.sendMessage(stream: viewModel.shouldStream)
             viewModel.isLoading = false
         }
     }
