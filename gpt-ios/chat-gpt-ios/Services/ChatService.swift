@@ -40,7 +40,7 @@ struct ChatService: ChatServiceType {
         let endpoint = try OpenAIEndpoint(request: request)
         
         if stream {
-            // Return a dummy response since we're streaming
+            // I don't think this will happen ever. I have to validate first.
             return OpenAIResponse(id: "", object: "", created: 0, model: "", choices: [], usage: nil)
         } else {
             return try await networkService.request(endpoint: endpoint, responseModel: OpenAIResponse.self)

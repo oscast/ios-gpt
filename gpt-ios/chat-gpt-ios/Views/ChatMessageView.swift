@@ -19,12 +19,12 @@ struct ChatMessagesView: View {
                         Spacer()
                     }
                     
-                    let color = message.role == .user ? Color.blue : Color.gray
+                    let backgroundColor = message.role == .user ? Color.accentColor.opacity(0.2) : Color.softGreen.opacity(0.2)
                     Text(message.content)
                         .padding()
-                        .background(color.opacity(0.2))
+                        .background(backgroundColor)
                         .cornerRadius(8)
-                        .foregroundColor(.black)
+                        .foregroundColor(.primary)
                     
                     if message.role == .assistant {
                         Spacer()

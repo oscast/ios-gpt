@@ -24,7 +24,7 @@ struct ChatButton: View {
             }) {
                 Image(systemName: "paperplane.fill")
                     .padding()
-                    .background(Color.blue)
+                    .background(Color.accentColor)
                     .foregroundColor(.white)
                     .cornerRadius(8)
             }

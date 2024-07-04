@@ -19,7 +19,7 @@ struct Message: Codable, Equatable, Hashable {
     var content: String
     
     static func == (lhs: Message, rhs: Message) -> Bool {
-        return lhs.role == rhs.role && lhs.content == rhs.content
+        return lhs.id == rhs.id && lhs.role == rhs.role && lhs.content == rhs.content
     }
     
     enum CodingKeys: CodingKey {

@@ -23,6 +23,8 @@
 		9AC5CB2F2C35B0B9002F47C8 /* OpenAIChunkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC5CB2E2C35B0B9002F47C8 /* OpenAIChunkResponse.swift */; };
 		9AC5CB312C35B0DA002F47C8 /* OpenAIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC5CB302C35B0DA002F47C8 /* OpenAIResponse.swift */; };
 		9AC5CB332C35CD03002F47C8 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC5CB322C35CD03002F47C8 /* NetworkService.swift */; };
+		9AC5CB372C3621EB002F47C8 /* SpeechRecognizerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC5CB362C3621EB002F47C8 /* SpeechRecognizerService.swift */; };
+		9AC5CB392C37279D002F47C8 /* TextToSpeechService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC5CB382C37279D002F47C8 /* TextToSpeechService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +45,8 @@
 		9AC5CB2E2C35B0B9002F47C8 /* OpenAIChunkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIChunkResponse.swift; sourceTree = "<group>"; };
 		9AC5CB302C35B0DA002F47C8 /* OpenAIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIResponse.swift; sourceTree = "<group>"; };
 		9AC5CB322C35CD03002F47C8 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		9AC5CB362C3621EB002F47C8 /* SpeechRecognizerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognizerService.swift; sourceTree = "<group>"; };
+		9AC5CB382C37279D002F47C8 /* TextToSpeechService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextToSpeechService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +127,8 @@
 				9A58CC3D2C20CB8F00789FF4 /* ChatService.swift */,
 				9A5AD35F2C337A10001C6C3C /* ChatViewModel.swift */,
 				9AC5CB322C35CD03002F47C8 /* NetworkService.swift */,
+				9AC5CB362C3621EB002F47C8 /* SpeechRecognizerService.swift */,
+				9AC5CB382C37279D002F47C8 /* TextToSpeechService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -207,8 +213,10 @@
 			files = (
 				9AC5CB2F2C35B0B9002F47C8 /* OpenAIChunkResponse.swift in Sources */,
 				9A5AD3642C338620001C6C3C /* ChatMessageView.swift in Sources */,
+				9AC5CB372C3621EB002F47C8 /* SpeechRecognizerService.swift in Sources */,
 				9A22A47B2C25E9B10094511D /* ChatRequest.swift in Sources */,
 				9A5AD3622C3385FD001C6C3C /* ChatButton.swift in Sources */,
+				9AC5CB392C37279D002F47C8 /* TextToSpeechService.swift in Sources */,
 				9A58CC412C20CBE900789FF4 /* API Configuration.swift in Sources */,
 				9A58CC312C20CAB600789FF4 /* ContentView.swift in Sources */,
 				9AA74EDF2C2BD0F6003091B6 /* Request Models.swift in Sources */,
@@ -352,8 +360,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"chat-gpt-ios/Preview Content\"";
+				DEVELOPMENT_TEAM = 26YKZ4PBD6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "We need permission to use your microphone to transcript your audio to text";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "We need permission to transcript your speech";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -380,8 +391,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"chat-gpt-ios/Preview Content\"";
+				DEVELOPMENT_TEAM = 26YKZ4PBD6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "We need permission to use your microphone to transcript your audio to text";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "We need permission to transcript your speech";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
