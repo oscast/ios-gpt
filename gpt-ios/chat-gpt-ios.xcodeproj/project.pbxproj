@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9A22A47B2C25E9B10094511D /* ChatRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A22A47A2C25E9B10094511D /* ChatRequest.swift */; };
 		9A22A47F2C25EA1D0094511D /* OpenAIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A22A47E2C25EA1D0094511D /* OpenAIRequest.swift */; };
+		9A2DF3D52C37B1C800A3DBC2 /* OpenAIModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2DF3D42C37B1C800A3DBC2 /* OpenAIModels.swift */; };
 		9A58CC2F2C20CAB600789FF4 /* chat_gpt_iosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A58CC2E2C20CAB600789FF4 /* chat_gpt_iosApp.swift */; };
 		9A58CC312C20CAB600789FF4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A58CC302C20CAB600789FF4 /* ContentView.swift */; };
 		9A58CC332C20CAB700789FF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A58CC322C20CAB700789FF4 /* Assets.xcassets */; };
@@ -30,6 +31,7 @@
 /* Begin PBXFileReference section */
 		9A22A47A2C25E9B10094511D /* ChatRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRequest.swift; sourceTree = "<group>"; };
 		9A22A47E2C25EA1D0094511D /* OpenAIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIRequest.swift; sourceTree = "<group>"; };
+		9A2DF3D42C37B1C800A3DBC2 /* OpenAIModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIModels.swift; sourceTree = "<group>"; };
 		9A58CC2B2C20CAB600789FF4 /* chat-gpt-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "chat-gpt-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A58CC2E2C20CAB600789FF4 /* chat_gpt_iosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chat_gpt_iosApp.swift; sourceTree = "<group>"; };
 		9A58CC302C20CAB600789FF4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				9A5AD35D2C337947001C6C3C /* NetworkError.swift */,
 				9AC5CB2E2C35B0B9002F47C8 /* OpenAIChunkResponse.swift */,
 				9AC5CB302C35B0DA002F47C8 /* OpenAIResponse.swift */,
+				9A2DF3D42C37B1C800A3DBC2 /* OpenAIModels.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 				9A58CC2F2C20CAB600789FF4 /* chat_gpt_iosApp.swift in Sources */,
 				9A22A47F2C25EA1D0094511D /* OpenAIRequest.swift in Sources */,
 				9A5AD35E2C337947001C6C3C /* NetworkError.swift in Sources */,
+				9A2DF3D52C37B1C800A3DBC2 /* OpenAIModels.swift in Sources */,
 				9AC5CB332C35CD03002F47C8 /* NetworkService.swift in Sources */,
 				9AC5CB312C35B0DA002F47C8 /* OpenAIResponse.swift in Sources */,
 				9A5AD3602C337A10001C6C3C /* ChatViewModel.swift in Sources */,

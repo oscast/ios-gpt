@@ -32,7 +32,7 @@ struct ChatService: ChatServiceType {
         }
         
         let request = OpenAIRequest(
-            model: "gpt-3.5-turbo",
+            model: OpenAIGPTModel.gpt35Turbo.modelName,
             messages: messages,
             stream: stream
         )
