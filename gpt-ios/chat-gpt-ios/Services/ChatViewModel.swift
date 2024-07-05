@@ -16,9 +16,8 @@ class ChatViewModel {
     var errorMessage: String? = nil
     var shouldStream: Bool = false
     
-    @ObservationIgnored
     private let chatService: ChatServiceType
-    @ObservationIgnored
+    
     private var includeSystemRole: Bool
     
     private var lastMessageTime: Date?
@@ -57,7 +56,7 @@ class ChatViewModel {
             }
         } else {
             do {
-                let response = try await chatService.sendMessage(message, includeSystemRole: includeSystemRole, stream: false)
+                let response = try await chatService.sendMessage(message, includeSystemRole: includeSystemRole)
                 if let reply = response.choices.first?.message {
                     messages.append(reply)
                 }

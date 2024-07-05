@@ -7,11 +7,10 @@
 
 import Foundation
 import SwiftUI
-import Foundation
 
 protocol ChatServiceType {
     var networkService: RequesterType { get }
-    func sendMessage(_ message: Message, includeSystemRole: Bool, stream: Bool) async throws -> OpenAIResponse
+    func sendMessage(_ message: Message, includeSystemRole: Bool) async throws -> OpenAIResponse
     func streamMessage(_ message: Message, includeSystemRole: Bool, onReceive: @escaping (Result<Message, Error>) -> Void)
 }
 
@@ -24,49 +23,39 @@ struct ChatService: ChatServiceType {
         self.networkService = networkService
     }
     
-    func sendMessage(_ message: Message, includeSystemRole: Bool = true, stream: Bool = false) async throws -> OpenAIResponse {
-        var messages: [Message] = [message]
-        
-        if includeSystemRole {
-            messages.insert(ChatService.systemMessage, at: 0)
-        }
-        
-        let request = OpenAIRequest(
-            model: OpenAIGPTModel.gpt35Turbo.modelName,
-            messages: messages,
-            stream: stream
-        )
+    func sendMessage(_ message: Message, includeSystemRole: Bool = true) async throws -> OpenAIResponse {
+        let messages = buildMessages(message, includeSystemRole: includeSystemRole)
+        let request = buildOpenRequest(messages: messages)
         
         let endpoint = try OpenAIEndpoint(request: request)
-        
-        if stream {
-            // I don't think this will happen ever. I have to validate first.
-            return OpenAIResponse(id: "", object: "", created: 0, model: "", choices: [], usage: nil)
-        } else {
-            return try await networkService.request(endpoint: endpoint, responseModel: OpenAIResponse.self)
-        }
+        return try await networkService.request(endpoint: endpoint, responseModel: OpenAIResponse.self)
     }
     
     func streamMessage(_ message: Message, includeSystemRole: Bool, onReceive: @escaping (Result<Message, Error>) -> Void) {
-        var messages: [Message] = [message]
+        let messages = buildMessages(message, includeSystemRole: includeSystemRole)
+        let request = buildOpenRequest(messages: messages, stream: true)
         
-        if includeSystemRole {
-            messages.insert(ChatService.systemMessage, at: 0)
-        }
-        
-        let request = OpenAIRequest(
-            model: "gpt-3.5-turbo",
-            messages: messages,
-            stream: true
-        )
-        
-        let endpoint = try? OpenAIEndpoint(request: request)
-        
-        guard let endpoint = endpoint else {
+        guard let endpoint = try? OpenAIEndpoint(request: request) else {
             onReceive(.failure(NetworkError.invalidURL))
             return
         }
         
         networkService.streamRequest(endpoint: endpoint, onReceive: onReceive)
     }
+    
+    private func buildMessages(_ message: Message, includeSystemRole: Bool) -> [Message] {
+        var messages: [Message] = [message]
+        if includeSystemRole {
+            messages.insert(ChatService.systemMessage, at: 0)
+        }
+        return messages
+    }
+    
+    private func buildOpenRequest(messages: [Message], stream: Bool = false) -> OpenAIRequest {
+        OpenAIRequest(
+            messages: messages,
+            stream: stream
+        )
+    }
 }
+

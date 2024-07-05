@@ -51,6 +51,7 @@ struct OpenAIRequest: Codable {
     let logprobs: Int?
     let stop: [String]?
     
+    static let defaultModel = OpenAIGPTModel.gpt35Turbo.modelName
     static let defaultMaxTokens: Int = 150
     static let defaultTemperature: Double = 0.7
     static let defaultTopP: Double = 1.0
@@ -59,7 +60,7 @@ struct OpenAIRequest: Codable {
     static let defaultLogprobs: Int? = nil
     static let defaultStop: [String]? = nil
     
-    init(model: String,
+    init(model: String = defaultModel,
          messages: [Message],
          max_tokens: Int? = OpenAIRequest.defaultMaxTokens,
          temperature: Double? = OpenAIRequest.defaultTemperature,
