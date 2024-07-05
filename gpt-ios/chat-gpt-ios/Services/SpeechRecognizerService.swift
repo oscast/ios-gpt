@@ -10,6 +10,8 @@ import Speech
 
 @Observable
 class SpeechRecognizerService: NSObject, ObservableObject {
+    
+    // Everything is optional because I had problems stopping the audio services
     @ObservationIgnored
     private var audioEngine: AVAudioEngine?
     @ObservationIgnored

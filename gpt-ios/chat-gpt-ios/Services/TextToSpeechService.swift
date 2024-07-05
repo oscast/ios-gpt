@@ -9,6 +9,7 @@ import AVFoundation
 
 @Observable
 class TextToSpeechService: NSObject, AVSpeechSynthesizerDelegate {
+    // Everything is optional because I had problems stopping the audio services
     private var speechSynthesizer: AVSpeechSynthesizer?
     
     override init() {
@@ -69,6 +70,7 @@ class TextToSpeechService: NSObject, AVSpeechSynthesizerDelegate {
     }
     
     private func deactivateAudioSessionWithDelay() {
+        // I had to add this because there was a problem stopping the session as soon it finished speaking.  you have to ewait until it finish to speak completely.
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             self.deactivateAudioSession()
         }
