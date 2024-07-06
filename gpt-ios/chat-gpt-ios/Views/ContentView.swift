@@ -21,15 +21,17 @@ struct ContentView: View {
         NavigationView {
             VStack {
                 
-                Picker("TTS Service", selection: $ttsServiceType) {
-                    Text("Apple").tag(TTSProvider.apple)
-                    Text("Google").tag(TTSProvider.google)
-                    Text("OpenAI").tag(TTSProvider.openAI)
-                }
-                .pickerStyle(SegmentedPickerStyle())
-                .padding()
-                .onChange(of: ttsServiceType) { _, newValue in
-                    ttsService.setServiceType(newValue)
+                if viewModel.shouldStream {
+                    Picker("TTS Service", selection: $ttsServiceType) {
+                        Text("Apple").tag(TTSProvider.apple)
+                        Text("Google").tag(TTSProvider.google)
+                        Text("OpenAI").tag(TTSProvider.openAI)
+                    }
+                    .pickerStyle(SegmentedPickerStyle())
+                    .padding()
+                    .onChange(of: ttsServiceType) { _, newValue in
+                        ttsService.setServiceType(newValue)
+                    }
                 }
                 
                 Toggle(isOn: $viewModel.shouldStream, label: {
