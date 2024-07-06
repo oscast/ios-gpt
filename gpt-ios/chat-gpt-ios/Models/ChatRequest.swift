@@ -10,7 +10,7 @@ import Foundation
 struct ChatRequest {
     static let method = "POST"
     static let path = "chat/completions"
-    static let baseURL = APIConfiguration.serviceURL
+    static let baseURL: URL = .openAIURL
     
     static func makeRequest(openAIRequest: OpenAIRequest) throws -> URLRequest {
         guard let url = URL(string: baseURL.absoluteString + path) else {

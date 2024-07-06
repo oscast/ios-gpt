@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A0386F52C39D6D300251682 /* AudioPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0386F42C39D6D300251682 /* AudioPlayerManager.swift */; };
 		9A22A47B2C25E9B10094511D /* ChatRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A22A47A2C25E9B10094511D /* ChatRequest.swift */; };
 		9A22A47F2C25EA1D0094511D /* OpenAIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A22A47E2C25EA1D0094511D /* OpenAIRequest.swift */; };
 		9A2DF3D52C37B1C800A3DBC2 /* OpenAIModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2DF3D42C37B1C800A3DBC2 /* OpenAIModels.swift */; };
@@ -21,6 +22,13 @@
 		9A5AD3622C3385FD001C6C3C /* ChatButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5AD3612C3385FD001C6C3C /* ChatButton.swift */; };
 		9A5AD3642C338620001C6C3C /* ChatMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5AD3632C338620001C6C3C /* ChatMessageView.swift */; };
 		9AA74EDF2C2BD0F6003091B6 /* Request Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA74EDE2C2BD0F6003091B6 /* Request Models.swift */; };
+		9AA7D04B2C38601800570778 /* TextToSpeechType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA7D04A2C38601800570778 /* TextToSpeechType.swift */; };
+		9AA7D04D2C38603300570778 /* GoogleTTSService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA7D04C2C38603300570778 /* GoogleTTSService.swift */; };
+		9AA7D04F2C38608E00570778 /* GoogleTTSRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA7D04E2C38608E00570778 /* GoogleTTSRequest.swift */; };
+		9AA7D0512C3862CF00570778 /* OpenAITTSService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA7D0502C3862CF00570778 /* OpenAITTSService.swift */; };
+		9AA7D0542C38630600570778 /* OpenAITTSRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA7D0532C38630600570778 /* OpenAITTSRequest.swift */; };
+		9AA7D0562C38636100570778 /* TTSProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA7D0552C38636100570778 /* TTSProvider.swift */; };
+		9AA7D0582C386B8A00570778 /* AppleTTSService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA7D0572C386B8A00570778 /* AppleTTSService.swift */; };
 		9AC5CB2F2C35B0B9002F47C8 /* OpenAIChunkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC5CB2E2C35B0B9002F47C8 /* OpenAIChunkResponse.swift */; };
 		9AC5CB312C35B0DA002F47C8 /* OpenAIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC5CB302C35B0DA002F47C8 /* OpenAIResponse.swift */; };
 		9AC5CB332C35CD03002F47C8 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC5CB322C35CD03002F47C8 /* NetworkService.swift */; };
@@ -29,6 +37,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9A0386F42C39D6D300251682 /* AudioPlayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerManager.swift; sourceTree = "<group>"; };
 		9A22A47A2C25E9B10094511D /* ChatRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRequest.swift; sourceTree = "<group>"; };
 		9A22A47E2C25EA1D0094511D /* OpenAIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIRequest.swift; sourceTree = "<group>"; };
 		9A2DF3D42C37B1C800A3DBC2 /* OpenAIModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIModels.swift; sourceTree = "<group>"; };
@@ -44,6 +53,13 @@
 		9A5AD3612C3385FD001C6C3C /* ChatButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatButton.swift; sourceTree = "<group>"; };
 		9A5AD3632C338620001C6C3C /* ChatMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessageView.swift; sourceTree = "<group>"; };
 		9AA74EDE2C2BD0F6003091B6 /* Request Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Request Models.swift"; sourceTree = "<group>"; };
+		9AA7D04A2C38601800570778 /* TextToSpeechType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextToSpeechType.swift; sourceTree = "<group>"; };
+		9AA7D04C2C38603300570778 /* GoogleTTSService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleTTSService.swift; sourceTree = "<group>"; };
+		9AA7D04E2C38608E00570778 /* GoogleTTSRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleTTSRequest.swift; sourceTree = "<group>"; };
+		9AA7D0502C3862CF00570778 /* OpenAITTSService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAITTSService.swift; sourceTree = "<group>"; };
+		9AA7D0532C38630600570778 /* OpenAITTSRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAITTSRequest.swift; sourceTree = "<group>"; };
+		9AA7D0552C38636100570778 /* TTSProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTSProvider.swift; sourceTree = "<group>"; };
+		9AA7D0572C386B8A00570778 /* AppleTTSService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleTTSService.swift; sourceTree = "<group>"; };
 		9AC5CB2E2C35B0B9002F47C8 /* OpenAIChunkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIChunkResponse.swift; sourceTree = "<group>"; };
 		9AC5CB302C35B0DA002F47C8 /* OpenAIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIResponse.swift; sourceTree = "<group>"; };
 		9AC5CB322C35CD03002F47C8 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
@@ -62,9 +78,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9A0386F32C39D6C700251682 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				9A0386F42C39D6D300251682 /* AudioPlayerManager.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		9A22A4792C25E96C0094511D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				9AA7D0522C3862F700570778 /* OpenAI */,
 				9A22A47A2C25E9B10094511D /* ChatRequest.swift */,
 				9A22A47E2C25EA1D0094511D /* OpenAIRequest.swift */,
 				9AA74EDE2C2BD0F6003091B6 /* Request Models.swift */,
@@ -72,6 +97,8 @@
 				9AC5CB2E2C35B0B9002F47C8 /* OpenAIChunkResponse.swift */,
 				9AC5CB302C35B0DA002F47C8 /* OpenAIResponse.swift */,
 				9A2DF3D42C37B1C800A3DBC2 /* OpenAIModels.swift */,
+				9AA7D04E2C38608E00570778 /* GoogleTTSRequest.swift */,
+				9AA7D0552C38636100570778 /* TTSProvider.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -105,6 +132,7 @@
 		9A58CC2D2C20CAB600789FF4 /* chat-gpt-ios */ = {
 			isa = PBXGroup;
 			children = (
+				9A0386F32C39D6C700251682 /* Helpers */,
 				9A22A4802C25EAD70094511D /* Views */,
 				9A22A4792C25E96C0094511D /* Models */,
 				9A58CC3F2C20CBCA00789FF4 /* App Configuration */,
@@ -127,6 +155,7 @@
 		9A58CC3C2C20CB2300789FF4 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				9AA7D0492C38600400570778 /* TextToSpeech */,
 				9A58CC3D2C20CB8F00789FF4 /* ChatService.swift */,
 				9A5AD35F2C337A10001C6C3C /* ChatViewModel.swift */,
 				9AC5CB322C35CD03002F47C8 /* NetworkService.swift */,
@@ -142,6 +171,25 @@
 				9A58CC402C20CBE900789FF4 /* API Configuration.swift */,
 			);
 			path = "App Configuration";
+			sourceTree = "<group>";
+		};
+		9AA7D0492C38600400570778 /* TextToSpeech */ = {
+			isa = PBXGroup;
+			children = (
+				9AA7D04A2C38601800570778 /* TextToSpeechType.swift */,
+				9AA7D04C2C38603300570778 /* GoogleTTSService.swift */,
+				9AA7D0502C3862CF00570778 /* OpenAITTSService.swift */,
+				9AA7D0572C386B8A00570778 /* AppleTTSService.swift */,
+			);
+			path = TextToSpeech;
+			sourceTree = "<group>";
+		};
+		9AA7D0522C3862F700570778 /* OpenAI */ = {
+			isa = PBXGroup;
+			children = (
+				9AA7D0532C38630600570778 /* OpenAITTSRequest.swift */,
+			);
+			path = OpenAI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,19 +265,27 @@
 				9AC5CB2F2C35B0B9002F47C8 /* OpenAIChunkResponse.swift in Sources */,
 				9A5AD3642C338620001C6C3C /* ChatMessageView.swift in Sources */,
 				9AC5CB372C3621EB002F47C8 /* SpeechRecognizerService.swift in Sources */,
+				9AA7D04B2C38601800570778 /* TextToSpeechType.swift in Sources */,
 				9A22A47B2C25E9B10094511D /* ChatRequest.swift in Sources */,
 				9A5AD3622C3385FD001C6C3C /* ChatButton.swift in Sources */,
 				9AC5CB392C37279D002F47C8 /* TextToSpeechService.swift in Sources */,
+				9AA7D0512C3862CF00570778 /* OpenAITTSService.swift in Sources */,
 				9A58CC412C20CBE900789FF4 /* API Configuration.swift in Sources */,
 				9A58CC312C20CAB600789FF4 /* ContentView.swift in Sources */,
 				9AA74EDF2C2BD0F6003091B6 /* Request Models.swift in Sources */,
 				9A58CC2F2C20CAB600789FF4 /* chat_gpt_iosApp.swift in Sources */,
+				9A0386F52C39D6D300251682 /* AudioPlayerManager.swift in Sources */,
 				9A22A47F2C25EA1D0094511D /* OpenAIRequest.swift in Sources */,
 				9A5AD35E2C337947001C6C3C /* NetworkError.swift in Sources */,
+				9AA7D04D2C38603300570778 /* GoogleTTSService.swift in Sources */,
+				9AA7D0542C38630600570778 /* OpenAITTSRequest.swift in Sources */,
+				9AA7D04F2C38608E00570778 /* GoogleTTSRequest.swift in Sources */,
 				9A2DF3D52C37B1C800A3DBC2 /* OpenAIModels.swift in Sources */,
 				9AC5CB332C35CD03002F47C8 /* NetworkService.swift in Sources */,
+				9AA7D0562C38636100570778 /* TTSProvider.swift in Sources */,
 				9AC5CB312C35B0DA002F47C8 /* OpenAIResponse.swift in Sources */,
 				9A5AD3602C337A10001C6C3C /* ChatViewModel.swift in Sources */,
+				9AA7D0582C386B8A00570778 /* AppleTTSService.swift in Sources */,
 				9A58CC3E2C20CB8F00789FF4 /* ChatService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

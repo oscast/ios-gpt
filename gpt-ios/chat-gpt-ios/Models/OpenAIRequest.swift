@@ -82,7 +82,7 @@ struct OpenAIRequest: Codable {
 }
 
 struct OpenAIEndpoint: Endpoint {
-    var baseURL: URL { APIConfiguration.serviceURL }
+    var baseURL: URL { .openAIURL }
     var path: String { "/chat/completions" }
     var method: HTTPMethod { .post }
     var headers: [String: String]? { ["Authorization": "Bearer \(APIConfiguration.apiKey)", "Content-Type": "application/json"] }
