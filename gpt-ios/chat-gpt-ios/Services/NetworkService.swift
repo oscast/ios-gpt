@@ -38,30 +38,31 @@ extension URLSession: NetworkSession {
 protocol RequesterType {
     func request<T: Decodable>(endpoint: Endpoint, responseModel: T.Type) async throws -> T
     func streamRequest(endpoint: Endpoint, onReceive: @escaping (Result<Message, Error>) -> Void)
+    func requestData(endpoint: Endpoint) async throws -> Data
 }
 
 class NetworkService: RequesterType {
     private let session: NetworkSession
-
+    
     init(session: NetworkSession = URLSession.shared) {
         self.session = session
     }
-
+    
     func request<T: Decodable>(endpoint: Endpoint, responseModel: T.Type) async throws -> T {
         guard let request = endpoint.urlRequest else {
             throw NetworkError.invalidURL
         }
-
+        
         let (data, response) = try await session.data(for: request)
-
+        
         guard let httpResponse = response as? HTTPURLResponse else {
             throw NetworkError.invalidResponse
         }
-
+        
         guard (200...299).contains(httpResponse.statusCode) else {
             throw httpResponse.toNetworkError(data: data)
         }
-
+        
         do {
             let decodedResponse = try JSONDecoder().decode(T.self, from: data)
             return decodedResponse
@@ -69,13 +70,31 @@ class NetworkService: RequesterType {
             throw NetworkError.decodeFailed
         }
     }
-
+    
+    func requestData(endpoint: Endpoint) async throws -> Data {
+        guard let request = endpoint.urlRequest else {
+            throw NetworkError.invalidURL
+        }
+        
+        let (data, response) = try await session.data(for: request)
+        
+        guard let httpResponse = response as? HTTPURLResponse else {
+            throw NetworkError.invalidResponse
+        }
+        
+        guard (200...299).contains(httpResponse.statusCode) else {
+            throw httpResponse.toNetworkError(data: data)
+        }
+        
+        return data
+    }
+    
     func streamRequest(endpoint: Endpoint, onReceive: @escaping (Result<Message, Error>) -> Void) {
         guard let request = endpoint.urlRequest else {
             onReceive(.failure(NetworkError.invalidURL))
             return
         }
-
+        
         session.streamData(for: request) { result in
             switch result {
             case .success(let data):
@@ -83,11 +102,11 @@ class NetworkService: RequesterType {
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
                 let buffer = String(decoding: data, as: UTF8.self).split(separator: "\n")
                 var currentContent = ""
-
+                
                 for line in buffer {
                     guard line.hasPrefix("data:") else { continue }
                     let jsonString = line.dropFirst(5).trimmingCharacters(in: .whitespaces)
-
+                    
                     if jsonString == "[DONE]" {
                         onReceive(.success(Message(role: .assistant, content: currentContent)))
                         break

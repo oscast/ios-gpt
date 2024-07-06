@@ -17,13 +17,13 @@ protocol ChatServiceType {
 struct ChatService: ChatServiceType {
     let networkService: RequesterType
     
-    static var systemMessage = Message(role: .system, content: "You are a useful assistant expert on everything.")
+    static var systemMessage = Message(role: .system, content: "You are a useful assistant expert on everything and willing to help the user.")
     
     init(networkService: RequesterType = NetworkService()) {
         self.networkService = networkService
     }
     
-    func sendMessage(_ message: Message, includeSystemRole: Bool = true) async throws -> OpenAIResponse {
+    func sendMessage(_ message: Message, includeSystemRole: Bool = false) async throws -> OpenAIResponse {
         let messages = buildMessages(message, includeSystemRole: includeSystemRole)
         let request = buildOpenRequest(messages: messages)
         

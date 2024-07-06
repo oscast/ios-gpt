@@ -12,13 +12,27 @@ struct ContentView: View {
     @State private var viewModel = ChatViewModel()
     
     @State private var speechRecognizer = SpeechRecognizerService()
-    @State private var speechSynthesizerService = TextToSpeechService()
+    @State private var ttsService = TextToSpeechService(serviceType: .google)
     @State private var showingTextField = false
     @State private var speechText: String = ""
+    @State private var ttsServiceType: TTSProvider = .google
     
     var body: some View {
         NavigationView {
             VStack {
+                
+                if viewModel.shouldStream {
+                    Picker("TTS Service", selection: $ttsServiceType) {
+                        Text("Apple").tag(TTSProvider.apple)
+                        Text("Google").tag(TTSProvider.google)
+                        Text("OpenAI").tag(TTSProvider.openAI)
+                    }
+                    .pickerStyle(SegmentedPickerStyle())
+                    .padding()
+                    .onChange(of: ttsServiceType) { _, newValue in
+                        ttsService.setServiceType(newValue)
+                    }
+                }
                 
                 Toggle(isOn: $viewModel.shouldStream, label: {
                     HStack {
@@ -40,7 +54,7 @@ struct ContentView: View {
                             if let lastMessage = newMessages.last {
                                   scrollViewProxy.scrollTo(lastMessage, anchor: .bottom)
                                   if lastMessage.role == .assistant {
-                                      speechSynthesizerService.speak(lastMessage.content)
+                                      ttsService.speak(text: lastMessage.content)
                                   }
                               }
                         }
