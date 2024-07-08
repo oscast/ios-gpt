@@ -21,7 +21,7 @@ struct ContentView: View {
         NavigationView {
             VStack {
                 
-                if viewModel.shouldStream {
+                if viewModel.shouldStream == false {
                     Picker("TTS Service", selection: $ttsServiceType) {
                         Text("Apple").tag(TTSProvider.apple)
                         Text("Google").tag(TTSProvider.google)
