@@ -53,7 +53,7 @@ struct ContentView: View {
                         withAnimation {
                             if let lastMessage = newMessages.last {
                                   scrollViewProxy.scrollTo(lastMessage, anchor: .bottom)
-                                  if lastMessage.role == .assistant {
+                                if lastMessage.role == .assistant && viewModel.shouldStream == false {
                                       ttsService.speak(text: lastMessage.content)
                                   }
                               }
